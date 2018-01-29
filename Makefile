@@ -1,6 +1,6 @@
 EXTRA_CFLAGS += $(USER_EXTRA_CFLAGS)
-EXTRA_CFLAGS += -O1
-#EXTRA_CFLAGS += -O3
+#EXTRA_CFLAGS += -O1
+EXTRA_CFLAGS += -O3
 EXTRA_CFLAGS += -Wall
 #EXTRA_CFLAGS += -Wextra
 #EXTRA_CFLAGS += -Werror
@@ -26,14 +26,14 @@ CONFIG_AUTOCFG_CP = n
 
 ########################## WIFI IC ############################
 CONFIG_MULTIDRV = n
-CONFIG_RTL8188E = n
+CONFIG_RTL8188E = y # was n
 CONFIG_RTL8812A = y
 CONFIG_RTL8821A = y
-CONFIG_RTL8192E = n
-CONFIG_RTL8723B = n
-CONFIG_RTL8814A = n
-CONFIG_RTL8703B = n
-CONFIG_RTL8188F = n
+CONFIG_RTL8192E = y # was n
+CONFIG_RTL8723B = y # was n
+CONFIG_RTL8814A = y # was n
+CONFIG_RTL8703B = y # was n
+CONFIG_RTL8188F = y # was n
 ######################### Interface ###########################
 CONFIG_USB_HCI = y
 CONFIG_PCI_HCI = n
@@ -41,7 +41,7 @@ CONFIG_SDIO_HCI = n
 CONFIG_GSPI_HCI = n
 ########################## Features ###########################
 CONFIG_MP_INCLUDED = y
-CONFIG_POWER_SAVING = y
+CONFIG_POWER_SAVING = n # was y
 CONFIG_USB_AUTOSUSPEND = n
 CONFIG_HW_PWRP_DETECTION = n
 CONFIG_WIFI_TEST = n
