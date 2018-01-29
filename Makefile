@@ -1,6 +1,6 @@
 EXTRA_CFLAGS += $(USER_EXTRA_CFLAGS)
-#EXTRA_CFLAGS += -O1
-EXTRA_CFLAGS += -O3
+EXTRA_CFLAGS += -O1
+#EXTRA_CFLAGS += -O3
 EXTRA_CFLAGS += -Wall
 #EXTRA_CFLAGS += -Wextra
 #EXTRA_CFLAGS += -Werror
@@ -15,7 +15,6 @@ EXTRA_CFLAGS += -Wno-unused-parameter
 EXTRA_CFLAGS += -Wno-unused-function
 EXTRA_CFLAGS += -Wno-implicit-function-declaration
 EXTRA_CFLAGS += -Wno-unused
-#EXTRA_CFLAGS += -Wno-uninitialized
 EXTRA_CFLAGS += -Wno-error=date-time	# Fix compile error on gcc 4.9 and later
 
 EXTRA_CFLAGS += -I$(src)/include
@@ -27,22 +26,24 @@ CONFIG_AUTOCFG_CP = n
 
 ########################## WIFI IC ############################
 CONFIG_MULTIDRV = n
-CONFIG_RTL8188E = n # was n
+CONFIG_RTL8188E = n
 CONFIG_RTL8812A = y
 CONFIG_RTL8821A = y
-CONFIG_RTL8192E = n # was n
-CONFIG_RTL8723B = n # was n
-CONFIG_RTL8814A = n # was n
-CONFIG_RTL8703B = n # was n
-CONFIG_RTL8188F = n # was n
+CONFIG_RTL8192E = n
+CONFIG_RTL8723B = n
+CONFIG_RTL8814A = n
+CONFIG_RTL8703B = n
+CONFIG_RTL8188F = n
 ######################### Interface ###########################
 CONFIG_USB_HCI = y
 CONFIG_PCI_HCI = n
 CONFIG_SDIO_HCI = n
 CONFIG_GSPI_HCI = n
 ########################## Features ###########################
-CONFIG_MP_INCLUDED = y
-CONFIG_POWER_SAVING = n # was y
+# was y : Mass production tool
+CONFIG_MP_INCLUDED = n
+# was y : Power saving mode
+CONFIG_POWER_SAVING = n
 CONFIG_USB_AUTOSUSPEND = n
 CONFIG_HW_PWRP_DETECTION = n
 CONFIG_WIFI_TEST = n
@@ -51,19 +52,24 @@ CONFIG_INTEL_WIDI = n
 CONFIG_WAPI_SUPPORT = n
 CONFIG_EFUSE_CONFIG_FILE = n
 CONFIG_EXT_CLK = n
-CONFIG_TRAFFIC_PROTECT = y
-CONFIG_LOAD_PHY_PARA_FROM_FILE = y
+# was y 
+CONFIG_TRAFFIC_PROTECT = n
+CONFIG_LOAD_PHY_PARA_FROM_FILE = n
 CONFIG_CALIBRATE_TX_POWER_BY_REGULATORY = n
 CONFIG_CALIBRATE_TX_POWER_TO_MAX = n
-CONFIG_RTW_ADAPTIVITY_EN = disable
-CONFIG_RTW_ADAPTIVITY_MODE = normal
+# was disable
+CONFIG_RTW_ADAPTIVITY_EN = enable
+# was normal
+CONFIG_RTW_ADAPTIVITY_MODE = carrier_sense
 CONFIG_SIGNAL_SCALE_MAPPING = n
+# Improved security
 CONFIG_80211W = n
 CONFIG_REDUCE_TX_CPU_LOADING = n
-CONFIG_BR_EXT = y
+CONFIG_BR_EXT = n
 CONFIG_ANTENNA_DIVERSITY = n
 CONFIG_TDLS = n
-CONFIG_WIFI_MONITOR = y
+# was y
+CONFIG_WIFI_MONITOR = n
 ######################## Wake On Lan ##########################
 CONFIG_WOWLAN = n
 CONFIG_GPIO_WAKEUP = n
@@ -73,7 +79,7 @@ CONFIG_PNO_SUPPORT = n
 CONFIG_PNO_SET_DEBUG = n
 CONFIG_AP_WOWLAN = n
 ######### Notify SDIO Host Keep Power During Syspend ##########
-CONFIG_RTW_SDIO_PM_KEEP_POWER = y
+CONFIG_RTW_SDIO_PM_KEEP_POWER = n
 ###################### Platform Related #######################
 CONFIG_PLATFORM_GENERIC = y
 CONFIG_PLATFORM_I386_PC = n
