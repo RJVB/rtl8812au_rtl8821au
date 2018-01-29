@@ -13,6 +13,7 @@ EXTRA_CFLAGS += -Wno-unused-value
 EXTRA_CFLAGS += -Wno-unused-label
 EXTRA_CFLAGS += -Wno-unused-parameter
 EXTRA_CFLAGS += -Wno-unused-function
+EXTRA_CFLAGS += -Wno-implicit-function-declaration
 EXTRA_CFLAGS += -Wno-unused
 #EXTRA_CFLAGS += -Wno-uninitialized
 EXTRA_CFLAGS += -Wno-error=date-time	# Fix compile error on gcc 4.9 and later
@@ -26,14 +27,14 @@ CONFIG_AUTOCFG_CP = n
 
 ########################## WIFI IC ############################
 CONFIG_MULTIDRV = n
-CONFIG_RTL8188E = y # was n
+CONFIG_RTL8188E = n # was n
 CONFIG_RTL8812A = y
 CONFIG_RTL8821A = y
-CONFIG_RTL8192E = y # was n
-CONFIG_RTL8723B = y # was n
-CONFIG_RTL8814A = y # was n
-CONFIG_RTL8703B = y # was n
-CONFIG_RTL8188F = y # was n
+CONFIG_RTL8192E = n # was n
+CONFIG_RTL8723B = n # was n
+CONFIG_RTL8814A = n # was n
+CONFIG_RTL8703B = n # was n
+CONFIG_RTL8188F = n # was n
 ######################### Interface ###########################
 CONFIG_USB_HCI = y
 CONFIG_PCI_HCI = n
