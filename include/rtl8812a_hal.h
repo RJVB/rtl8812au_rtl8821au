@@ -22,6 +22,8 @@
 
 //#include "hal_com.h"
 #include "hal_data.h"
+// for RT_MP_FIRMWARE:
+#include "rtw_mp.h"
 
 //include HAL Related header after HAL Related compiling flags 
 #include "rtl8812a_spec.h"
