@@ -806,9 +806,11 @@ PHY_IQCalibrate_8821A(
 				return;
 			#endif
 		#else// (DM_ODM_SUPPORT_TYPE == ODM_CE)
+#ifdef CONFIG_MP_INCLUDED
 		PMPT_CONTEXT	pMptCtx = &(pAdapter->mppriv.MptCtx);		
 		if( pMptCtx->bSingleTone || pMptCtx->bCarrierSuppression)
 			return;
+#endif
 		 pDM_Odm->IQKFWOffload = 0; /*MP mode NO FW IQK*/
 		#endif	
 		

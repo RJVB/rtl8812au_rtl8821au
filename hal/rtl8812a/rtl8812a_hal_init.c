@@ -1031,7 +1031,9 @@ int ReservedPage_Compare(PADAPTER Adapter,PRT_MP_FIRMWARE pFirmware,u32 BTPatchS
 	if (myBTFwBuffer == NULL)
 	{
 		DBG_871X("%s can't be executed due to the failed malloc.\n", __FUNCTION__);
+#ifdef CONFIG_MP_INCLUDED
 		Adapter->mppriv.bTxBufCkFail=_TRUE;
+#endif
 		return _FALSE;
 	}	
 	
@@ -1103,7 +1105,9 @@ int ReservedPage_Compare(PADAPTER Adapter,PRT_MP_FIRMWARE pFirmware,u32 BTPatchS
 		if(myBTFwBuffer[i]!= pFirmware->szFwBuffer[i])
 		{
 			DBG_871X(" In direct myBTFwBuffer[%d]=%x , pFirmware->szFwBuffer=%x\n",i, myBTFwBuffer[i],pFirmware->szFwBuffer[i]);
+#ifdef CONFIG_MP_INCLUDED
 			Adapter->mppriv.bTxBufCkFail=_TRUE;
+#endif
 			break;
 		}
 	}

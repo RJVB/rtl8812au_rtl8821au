@@ -1486,10 +1486,11 @@ _func_enter_;
 		_rtw_memcpy(pattrib->ra, pattrib->dst, ETH_ALEN);
 		_rtw_memcpy(pattrib->ta, pattrib->src, ETH_ALEN);
 
+#ifdef CONFIG_MP_INCLUDED
 		//
 		if(adapter->mppriv.bRTWSmbCfg==_FALSE)
+#endif
 			_rtw_memcpy(pattrib->bssid,  mybssid, ETH_ALEN);
-
 
 		*psta = rtw_get_stainfo(pstapriv, pattrib->bssid); // get sta_info
 		if (*psta == NULL) {
@@ -1608,8 +1609,10 @@ _func_enter_;
 		_rtw_memcpy(pattrib->bssid, GetAddr3Ptr(ptr), ETH_ALEN);
 		_rtw_memcpy(pattrib->ra, pattrib->dst, ETH_ALEN);
 		_rtw_memcpy(pattrib->ta, pattrib->src, ETH_ALEN);
+#ifdef CONFIG_MP_INCLUDED
 		//
 		if(adapter->mppriv.bRTWSmbCfg == _FALSE)
+#endif
 			_rtw_memcpy(pattrib->bssid,  mybssid, ETH_ALEN);
 
 		*psta = rtw_get_stainfo(pstapriv, pattrib->bssid); // get sta_info
@@ -3758,6 +3761,7 @@ _func_enter_;
 		len = htons(pattrib->seq_num);
 		//DBG_871X("wlan seq = %d ,seq_num =%x\n",len,pattrib->seq_num);
 		_rtw_memcpy(ptr+12,&len, 2);
+#ifdef CONFIG_MP_INCLUDED
 	if(adapter->mppriv.bRTWSmbCfg==_TRUE)
 	{
 //		if(_rtw_memcmp(mcastheadermac, pattrib->dst, 3) == _TRUE)//SimpleConfig Dest.
@@ -3767,7 +3771,7 @@ _func_enter_;
 			_rtw_memcpy(ptr, pattrib->bssid, ETH_ALEN);
 
 	}
-
+#endif
 	
 _func_exit_;	
 	return ret;
@@ -3791,8 +3795,11 @@ int mp_recv_frame(_adapter *padapter, union recv_frame *rframe)
 	struct sta_info *psta = NULL;
     	DBG_COUNTER(padapter->rx_logs.core_rx_pre);
     	
+#ifdef CONFIG_MP_INCLUDED
 	if ( (check_fwstate(pmlmepriv, _FW_LINKED) == _TRUE) )//&&(padapter->mppriv.check_mp_pkt == 0))
+#endif
 	{
+#ifdef CONFIG_MP_INCLUDED
 		if (pattrib->crc_err == 1){
 			padapter->mppriv.rx_crcerrpktcount++;
 		}
@@ -3811,6 +3818,7 @@ int mp_recv_frame(_adapter *padapter, union recv_frame *rframe)
 			goto exit;
 		}
 		else 
+#endif
 		{				
 			type =	GetFrameType(ptr);
 			pattrib->to_fr_ds = get_tofr_ds(ptr);

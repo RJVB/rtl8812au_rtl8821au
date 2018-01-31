@@ -59,10 +59,11 @@ ODM_TxPwrTrackSetPwr8821A(
 #if (DM_ODM_SUPPORT_TYPE & (ODM_WIN|ODM_CE ))
 	#if (DM_ODM_SUPPORT_TYPE & (ODM_WIN))
 		PMPT_CONTEXT		pMptCtx = &(Adapter->MptCtx);
-	#elif (DM_ODM_SUPPORT_TYPE & (ODM_CE))
-		PMPT_CONTEXT		pMptCtx = &(Adapter->mppriv.MptCtx);
-	#endif
 		TxRate = MptToMgntRate(pMptCtx->MptRateIndex);
+	#elif (DM_ODM_SUPPORT_TYPE & (ODM_CE)) && defined(CONFIG_MP_INCLUDED)
+		PMPT_CONTEXT		pMptCtx = &(Adapter->mppriv.MptCtx);
+		TxRate = MptToMgntRate(pMptCtx->MptRateIndex);
+	#endif
 #endif
 	}
 	else

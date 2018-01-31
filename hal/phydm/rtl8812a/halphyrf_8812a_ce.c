@@ -99,7 +99,7 @@ ODM_TxPwrTrackSetPwr8812A(
 					
 					TxRate = MptToMgntRate(pMptCtx->MptRateIndex);
 			#endif
-		#elif (DM_ODM_SUPPORT_TYPE & ODM_CE)
+		#elif (DM_ODM_SUPPORT_TYPE & ODM_CE) && defined(CONFIG_MP_INCLUDED)
 				PMPT_CONTEXT pMptCtx = &(Adapter->mppriv.MptCtx);
 				
 				TxRate = MptToMgntRate(pMptCtx->MptRateIndex);
@@ -336,7 +336,7 @@ GetDeltaSwingTable_8812A(
 					
 					TxRate = MptToMgntRate(pMptCtx->MptRateIndex);
 			#endif
-		#elif (DM_ODM_SUPPORT_TYPE & ODM_CE)
+		#elif (DM_ODM_SUPPORT_TYPE & ODM_CE) && defined(CONFIG_MP_INCLUDED)
 				PMPT_CONTEXT pMptCtx = &(Adapter->mppriv.MptCtx);
 				
 				TxRate = MptToMgntRate(pMptCtx->MptRateIndex);
